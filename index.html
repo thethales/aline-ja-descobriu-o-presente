@@ -55,7 +55,7 @@
         <div id="counter">Carregando...</div>
     </div>
     <div id="gif-container">
-        <img id="gif" src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcmd3OW5rZXA4Z2dncTQ1ZWN5dmJ5MHB3cG1yY3dyOHp2ZXRjbjB0YiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/UmbybxMJ3sRvKBV5qw/giphy.gif" alt="GIF animado">
+        <img id="gif" alt="GIF animado">
     </div>
 
     <script>
@@ -70,8 +70,14 @@
             "https://media0.giphy.com/media/CRV8v1m7eKJyy5wken/giphy.webp",
             "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExMW5kdGUweXdyMWw5am80ejFscDZ2d3BtbGpjNWwweXpvNzIza2JpNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/OsEUELlzF4lGuchFJQ/giphy.gif",
             "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMzFweXpmOWRidzJlemsweWVwdzNvZGw2NXR0OGhieHp3ZmYyZGxoYyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/9kvCuD0ed0Tumh3CwB/giphy.gif"
+        "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExZGVuOG85bDZ4M2RoaW1kMHR1eXhxbmYzajd4bWl6N3R1N3l5N3RteCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/VNtCIGq0UGQ38YhVpG/giphy.gif",
+"https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExd3NkZGN5a3RuMm80ZDg3eG1rc3FwOW1ndHFqOXRxc2NxMHU4a3N2ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/huXuyCODzzCQLy3T05/giphy.gif",
+          "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExbml6cm5zaWxhaDRuemlmbWw5a2IxdHE0a281bTAzMmFkdzRvZTNnNCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/9lPfFcptkykjQDDTqq/giphy.gif",
+          "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGk3MmZzMnlib2k0NzBoeWtweDRjaW9yc2hhaHg5NmN0Mnk4YXI1ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/DvfTp8qhBbLE3fUAVF/giphy.gif",
+          "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ2R4d2d3eWl0dzZ5b2JuYWd5bGpsajA3Mnl6djc5dHNlcmZwaW5ldyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/KcWgDMGniqMyk0Kfoz/giphy.gif",
+          
         ];
-        let gifIndex = 0;
+        let gifIndex = Math.floor(Math.random() * gifArray.length);
         
         function updateCounter() {
             const startDate = new Date("2025-02-01T00:00:00");
@@ -92,6 +98,7 @@
             gifIndex = (gifIndex + 1) % gifArray.length;
         }
 
+        document.getElementById("gif").src = gifArray[gifIndex];
         updateCounter();
         setInterval(updateCounter, 1000);
         setInterval(changeGif, 5000);
