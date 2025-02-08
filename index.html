@@ -89,12 +89,17 @@
     <div id="gif-container">
         <img id="gif" alt="GIF animado">
     </div>
-    <audio id="background-music" autoplay loop>
-        <source
-            src="https://cdn.pixabay.com/download/audio/2025/01/28/audio_d7106efb75.mp3?filename=fluffing-a-duck-293992.mp3"
-            type="audio/mpeg">
-    </audio>
+    <audio id="background-music" autoplay loop></audio>
+    
     <script>
+
+const musicArray = [
+            "https://cdn.pixabay.com/download/audio/2025/01/28/audio_d7106efb75.mp3?filename=fluffing-a-duck-293992.mp3",
+            "https://cdn.pixabay.com/download/audio/2025/01/09/audio_fb5685e519.mp3?filename=charanga-username-instrumantal-282981.mp3",
+            "https://cdn.pixabay.com/download/audio/2024/01/23/audio_ae8a9d7535.mp3?filename=kitchen-blog-positive-travel-happy-187696.mp3",
+            "https://cdn.pixabay.com/download/audio/2022/08/11/audio_3e8e7e73e1.mp3?filename=comedian-117016.mp3",
+        ];
+
         const gifArray = [
             "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcmd3OW5rZXA4Z2dncTQ1ZWN5dmJ5MHB3cG1yY3dyOHp2ZXRjbjB0YiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/UmbybxMJ3sRvKBV5qw/giphy.gif",
             "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExdHJzamh1b3huaXRiN2E3anpwNmM1eHoyemV2enY5MG1ndGd0emw0eSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/Bh0M8ahiN3gtOQT59z/giphy.gif",
@@ -141,6 +146,8 @@
 
         document.getElementById("play-button").addEventListener("click", function () {
             const audio = document.getElementById("background-music");
+            let randomMusic = musicArray[Math.floor(Math.random() * musicArray.length)];
+            audio.src = randomMusic;
             audio.play();
             this.style.display = "none";
         });
