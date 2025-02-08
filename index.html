@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Aline já descobriu o presente ?</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barriecito&family=Mountains+of+Christmas:wght@400;700&family=Unkempt:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Mountains of Christmas', cursive;
+            text-align: center;
+            margin: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            height: 100vh;
+        }
+        h1 {
+            font-size: 48px;
+            margin-top: 10px;
+            font-family: 'Barriecito', cursive;
+        }
+        h2 {
+            font-size: 24px;
+            color: gray;
+            font-family: 'Unkempt', cursive;
+        }
+        #counter {
+            font-size: 36px;
+            margin-top: 20px;
+        }
+        #gif-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h2>Aline já descobriu o presente?</h2>
+        <h1>Não</h1>
+        <div id="counter">Carregando...</div>
+    </div>
+    <div id="gif-container">
+        <img id="gif" src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcmd3OW5rZXA4Z2dncTQ1ZWN5dmJ5MHB3cG1yY3dyOHp2ZXRjbjB0YiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/UmbybxMJ3sRvKBV5qw/giphy.gif" alt="GIF animado">
+    </div>
+
+    <script>
+        const gifArray = [
+            "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcmd3OW5rZXA4Z2dncTQ1ZWN5dmJ5MHB3cG1yY3dyOHp2ZXRjbjB0YiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/UmbybxMJ3sRvKBV5qw/giphy.gif",
+            "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExdHJzamh1b3huaXRiN2E3anpwNmM1eHoyemV2enY5MG1ndGd0emw0eSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/Bh0M8ahiN3gtOQT59z/giphy.gif",
+            "https://media3.giphy.com/media/qDSlfgKzwXT4IgW85p/giphy.webp",
+            "https://media3.giphy.com/media/JETqg2ghwMWjO553PS/giphy.webp",
+            "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNnVucHMwMmVqc3BvMTMwZHNxN3I1ZDNkdmphajBvOW56dTdpcnN2ayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/C4z3mLkhMVp80gSNl1/giphy.gif",
+            "https://media4.giphy.com/media/yyMAeYCoBpqbPQmeJZ/giphy.webp",
+            "https://media2.giphy.com/media/OAWKoMrf51igzRoOkX/giphy.webp",
+            "https://media0.giphy.com/media/CRV8v1m7eKJyy5wken/giphy.webp",
+            "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExMW5kdGUweXdyMWw5am80ejFscDZ2d3BtbGpjNWwweXpvNzIza2JpNiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/OsEUELlzF4lGuchFJQ/giphy.gif",
+            "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExMzFweXpmOWRidzJlemsweWVwdzNvZGw2NXR0OGhieHp3ZmYyZGxoYyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/9kvCuD0ed0Tumh3CwB/giphy.gif"
+        ];
+        let gifIndex = 0;
+        
+        function updateCounter() {
+            const startDate = new Date("2025-02-01T00:00:00");
+            const now = new Date();
+            const elapsed = now - startDate;
+
+            const days = Math.floor(elapsed / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((elapsed % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((elapsed % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((elapsed % (1000 * 60)) / 1000);
+
+            document.getElementById("counter").innerText = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        }
+
+        function changeGif() {
+            const gifElement = document.getElementById("gif");
+            gifElement.src = gifArray[gifIndex];
+            gifIndex = (gifIndex + 1) % gifArray.length;
+        }
+
+        updateCounter();
+        setInterval(updateCounter, 1000);
+        setInterval(changeGif, 5000);
+    </script>
+</body>
+</html>
